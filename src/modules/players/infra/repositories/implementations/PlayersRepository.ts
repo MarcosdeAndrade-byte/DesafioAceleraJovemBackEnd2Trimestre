@@ -1,5 +1,7 @@
+import { error } from "console";
 import { openDb } from "../../../../../../configDB";
 import { IPlayerDTO } from "../../../../dtos/IPlayerDTO";
+import { Player } from "../../../entities/Player";
 import { IPlayersRepository } from "../IPlayersRepository";
 
 class PlayersRepository implements IPlayersRepository {
@@ -17,6 +19,12 @@ class PlayersRepository implements IPlayersRepository {
             db.run("INSERT INTO players_repository (id,team_id,name,age,position,goals) VALUES (?,?,?,?,?,?)", id, team_id, name, age, position, goals);
         })
     }
+
+    async findById(id: string): Promise<Player> {
+        const player = await openDb().then((db) => db.get("SELECT * FROM players_repository WHERE id = ?", id));
+        return player;
+    }
+
 };
 
 export { PlayersRepository };
