@@ -25,6 +25,10 @@ class PlayersRepository implements IPlayersRepository {
         return player;
     }
 
+    async playersByGoals(): Promise<Player[]> {
+        const playersByGoals = openDb().then((db) => db.all("SELECT * FROM players_repository ORDER BY goals DESC LIMIT 1"));
+        return playersByGoals;
+    }
 };
 
 export { PlayersRepository };
