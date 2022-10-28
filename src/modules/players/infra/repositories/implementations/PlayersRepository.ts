@@ -29,6 +29,11 @@ class PlayersRepository implements IPlayersRepository {
         const playersByGoals = openDb().then((db) => db.all("SELECT * FROM players_repository ORDER BY goals DESC LIMIT 1"));
         return playersByGoals;
     }
+
+    async sumOfGols(): Promise<string> {
+        const totalOfGoals = await openDb().then(db => db.get("SELECT SUM(goals) FROM players_repository"));
+        return totalOfGoals;
+    }
 };
 
 export { PlayersRepository };
