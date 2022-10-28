@@ -10,10 +10,10 @@ class CreatePlayerUseCase {
         try {
            const playerExist = await this.playersRepository.findById(id);
 
-            if(!playerExist){
+            if(playerExist){
                 throw new Error("O Id já existe no sistema");
             }
-
+            
            await this.playersRepository.addPlayer({id,team_id,name,age,position,goals});
         } catch (error) {
             throw new Error("Erro ao tentar adicionar Jogador");
