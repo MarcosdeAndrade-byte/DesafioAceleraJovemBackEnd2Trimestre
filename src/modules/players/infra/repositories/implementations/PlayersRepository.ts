@@ -11,7 +11,7 @@ class PlayersRepository implements IPlayersRepository {
 
     async createTable(): Promise<void> {
         openDb().then(db => {
-            db.exec("CREATE TABLE IF NOT EXISTS players_repository (id TEXT PRIMARY KEY,team_id TEXT,name TEXT,age INTEGER,position TEXT,goals INTEGER)");
+            db.exec("CREATE TABLE IF NOT EXISTS players_repository (id TEXT PRIMARY KEY,team_id TEXT,name TEXT,age INTEGER,position TEXT,goals INTEGER,FOREIGN KEY(team_id) REFERENCES teams_repository(id))");
         });
     }
 
