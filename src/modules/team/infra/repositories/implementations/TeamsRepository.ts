@@ -9,7 +9,7 @@ class TeamsRepository implements ITeamsRepository {
 
     async createTable(): Promise<void> {
         openDb().then(db => {
-            db.exec("CREATE TABLE IF NOT EXISTS teams_repository (id TEXT,name TEXT,coach TEXT,stadium TEXT,city TEXT)");
+            db.exec("CREATE TABLE IF NOT EXISTS teams_repository (id TEXT PRIMARY KEY,name TEXT,coach TEXT,stadium TEXT,city TEXT)");
         });
     }
 
