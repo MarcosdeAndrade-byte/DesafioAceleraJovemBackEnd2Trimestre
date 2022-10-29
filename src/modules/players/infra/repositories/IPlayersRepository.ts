@@ -8,7 +8,8 @@ interface IPlayersRepository {
     findById(id: string): Promise<Player>;
     playersByGoals(): Promise<Player[]>;
     sumOfGols(): Promise<string>;
-    separatedByPosition(): Promise<Positions>
+    separatedByPosition(): Promise<Positions>;
+    removePlayerById(id: string): Promise<void>;
 }
 
 export { IPlayersRepository };

@@ -52,6 +52,10 @@ class PlayersRepository implements IPlayersRepository {
 
         return positions;
     }
+
+    async removePlayerById(id: string): Promise<void> {
+        await openDb().then(db => db.run('UPDATE players_repository SET team_id = "" WHERE players_repository.id = ?',id));
+    }
 };
 
 export { PlayersRepository };
