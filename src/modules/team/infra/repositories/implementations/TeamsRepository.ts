@@ -13,16 +13,27 @@ class TeamsRepository implements ITeamsRepository {
         });
     }
 
-    async addTeam({id,name,coach,stadium,city}: ITeamDTO): Promise<void> {
+    async addTeam({ id, name, coach, stadium, city }: ITeamDTO): Promise<void> {
         openDb().then(db => {
-            db.run("INSERT INTO teams_repository (id,name,coach,stadium,city) VALUES (?,?,?,?,?)",id,name,coach,stadium,city);
+            db.run("INSERT INTO teams_repository (id,name,coach,stadium,city) VALUES (?,?,?,?,?)", id, name, coach, stadium, city);
         });
     }
 
-    async listTeams(): Promise<Team[]> {
+    async listTeams(): Promise<any> {
         const teams = openDb().then(db => db.all("SELECT * FROM teams_repository"));
         return teams;
     };
+
+    async listTeamById(id: string): Promise<any> {
+
+        const teams = await openDb().then(db => db.get("SELECT * FROM teams_repository WHERE teams_repository.id = ?", id));
+
+        const players = await openDb().then(db => db.all("SELECT * FROM players_repository WHERE players_repository.team_id = ?", id));
+
+        const teamsAndPlayers = { teams, players };
+
+        return teamsAndPlayers;
+    }
 }
 
 export { TeamsRepository };
