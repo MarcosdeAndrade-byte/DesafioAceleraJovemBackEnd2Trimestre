@@ -1,6 +1,7 @@
 import { error } from "console";
 import { openDb } from "../../../../../../configDB";
 import { IPlayerDTO } from "../../../../dtos/IPlayerDTO";
+import { Positions } from "../../../../dtos/IPositionDTO";
 import { Player } from "../../../entities/Player";
 import { IPlayersRepository } from "../IPlayersRepository";
 
@@ -33,6 +34,23 @@ class PlayersRepository implements IPlayersRepository {
     async sumOfGols(): Promise<string> {
         const totalOfGoals = await openDb().then(db => db.get("SELECT SUM(goals) FROM players_repository"));
         return totalOfGoals;
+    }
+
+    async separatedByPosition(): Promise<Positions> {
+        const separatedByPosition = await openDb().then(db => db.all("SELECT * FROM players_repository"));
+
+        const positions = {
+            "Goalkeeper": [],
+            "Defenders": [],
+            "Midfielder": [],
+            "Forward": []
+        };
+
+        separatedByPosition.forEach(user => { if(positions[user.position]){ 
+            positions[user.position].push(user) 
+        }});
+
+        return positions;
     }
 };
 

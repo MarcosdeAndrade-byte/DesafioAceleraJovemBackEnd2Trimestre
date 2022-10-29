@@ -1,4 +1,5 @@
 import { IPlayerDTO } from "../../../dtos/IPlayerDTO";
+import { Positions } from "../../../dtos/IPositionDTO";
 import { Player } from "../../entities/Player";
 
 interface IPlayersRepository {
@@ -7,6 +8,7 @@ interface IPlayersRepository {
     findById(id: string): Promise<Player>;
     playersByGoals(): Promise<Player[]>;
     sumOfGols(): Promise<string>;
+    separatedByPosition(): Promise<Positions>
 }
 
 export { IPlayersRepository };
