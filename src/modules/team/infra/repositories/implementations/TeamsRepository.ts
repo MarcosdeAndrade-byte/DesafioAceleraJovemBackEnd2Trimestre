@@ -1,5 +1,6 @@
 import { openDb } from "../../../../../../configDB";
 import { ITeamDTO } from "../../../../dtos/ITeamDTO";
+import { Team } from "../../../entities/Team";
 import { ITeamsRepository } from "../ITeamsRepository";
 
 class TeamsRepository implements ITeamsRepository {
@@ -18,6 +19,10 @@ class TeamsRepository implements ITeamsRepository {
         });
     }
 
+    async listTeams(): Promise<Team[]> {
+        const teams = openDb().then(db => db.all("SELECT * FROM teams_repository"));
+        return teams;
+    };
 }
 
 export { TeamsRepository };
