@@ -10,7 +10,7 @@ class CreateTeamUseCase {
         try {    
            await this.teamsRepository.addTeam({id,name,coach,stadium,city});
         } catch (error) {
-            throw new Error("Erro ao tentar adicionar Jogador");
+            throw new Error("Erro ao tentar adicionar Time");
         }
     }
 
