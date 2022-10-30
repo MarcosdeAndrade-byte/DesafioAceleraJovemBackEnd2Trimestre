@@ -10,7 +10,7 @@ class PlayersByGoalsUseCase {
        const players = await this.playersRepository.playersByGoals();
 
        if(!players) {
-        throw new Error("Não foi possível retornar a lista de usuários");
+        throw new Error("Não foi possível retornar o Jogador");
        }
 
        return players;

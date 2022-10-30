@@ -6,8 +6,12 @@ class PlayersByGoalsController {
     constructor(private playersByGoalsUseCase: PlayersByGoalsUseCase) {}
 
     async handle(request: Request,response: Response): Promise<Response> {
-        const player = await this.playersByGoalsUseCase.execute();
-        return response.status(200).json(player);
+        try {
+            const player = await this.playersByGoalsUseCase.execute();
+            return response.status(200).json(player);
+        } catch (error) {
+            return response.status(500).json(error.message);
+        }
     }
 
 }
