@@ -9,7 +9,7 @@ class ListTeamsController {
            const teams = await this.listTeamsUseCase.execute();
            return response.json(teams).status(200);
         } catch (error) {
-            return response.json(error).status(500);
+            return response.status(500).json(error.message);
         }
     }
 

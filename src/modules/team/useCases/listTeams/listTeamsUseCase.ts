@@ -8,12 +8,13 @@ class ListTeamsUseCase {
     constructor(private teamsRepository: TeamsRepository){}
 
     async execute(): Promise<Team[]>{
-        try {
            const teams = await this.teamsRepository.listTeams();
+           
+           if(!teams) {
+              throw new Error("Erro ao tentar listar Times");
+           }
+
            return teams;
-        } catch (error) {
-            throw new Error("Erro ao tentar listar Times");
-        }
     }
 
 }
