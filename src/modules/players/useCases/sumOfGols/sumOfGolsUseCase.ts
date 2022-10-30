@@ -9,7 +9,9 @@ class SumOfGolsUseCase {
     async execute(team_id: string): Promise<string> {
        const sumOfGols = await this.playersRepository.sumOfGols(team_id);
 
-       if(!sumOfGols) {
+       const teste = Object.values(sumOfGols)[0]
+
+       if(!teste) {
         throw new Error("Não foi possível contabilizar o número de gols");
        }
 
