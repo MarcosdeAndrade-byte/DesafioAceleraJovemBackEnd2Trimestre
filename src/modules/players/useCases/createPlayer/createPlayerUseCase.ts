@@ -7,7 +7,7 @@ class CreatePlayerUseCase {
     constructor(private playersRepository: PlayersRepository){}
 
     async execute({id,team_id,name,age,position,goals}:IPlayerDTO): Promise<void>{
-        try {
+
            const playerExist = await this.playersRepository.findById(id);
 
             if(playerExist){
@@ -15,9 +15,7 @@ class CreatePlayerUseCase {
             }
             
            await this.playersRepository.addPlayer({id,team_id,name,age,position,goals});
-        } catch (error) {
-            throw new Error("Erro ao tentar adicionar Jogador");
-        }
+        
     }
 
 }
