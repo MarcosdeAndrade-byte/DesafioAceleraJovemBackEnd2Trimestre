@@ -6,7 +6,7 @@ class ListTeamByIdController {
 
     async handle(request: Request, response: Response): Promise<Response>{
         try {
-           const {id} = request.body;
+           const { id } = request.headers as any;
            const team = await this.ListTeamByIdUseCase.execute(id);
            return response.json(team).status(200);
         } catch (error) {
