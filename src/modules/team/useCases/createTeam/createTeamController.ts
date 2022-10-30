@@ -7,10 +7,13 @@ class CreateTeamController {
     async handle(request: Request, response: Response): Promise<Response>{
         try {
            const {id,name,coach,stadium,city} = request.body;
+           if(id || name || coach || stadium || city == undefined) {
+                throw new Error("Para adicionar um time adicione todos os dados: id,name,coach,stadium,city");
+           }
            await this.createTeamUseCase.execute({id,name,coach,stadium,city});
-           return response.json("OK").status(200);
+           return response.status(200).json("OK");
         } catch (error) {
-            return response.json(error).status(500);
+            return response.status(400).json(error.message);
         }
     }
 
