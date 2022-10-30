@@ -31,8 +31,8 @@ class PlayersRepository implements IPlayersRepository {
         return playersByGoals;
     }
 
-    async sumOfGols(): Promise<string> {
-        const totalOfGoals = await openDb().then(db => db.get("SELECT SUM(goals) FROM players_repository"));
+    async sumOfGols(team_id: string): Promise<string> {
+        const totalOfGoals = await openDb().then(db => db.get("SELECT SUM(goals) FROM players_repository WHERE team_id = ?", team_id));
         return totalOfGoals;
     }
 

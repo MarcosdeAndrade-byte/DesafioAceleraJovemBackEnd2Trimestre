@@ -7,7 +7,7 @@ interface IPlayersRepository {
     addPlayer({id,team_id,name,age,position,goals}: IPlayerDTO): Promise<void>;
     findById(id: string): Promise<Player>;
     playersByGoals(): Promise<Player[]>;
-    sumOfGols(): Promise<string>;
+    sumOfGols(id: string): Promise<string>;
     separatedByPosition(): Promise<Positions>;
     removePlayerById(id: string): Promise<void>;
 }
