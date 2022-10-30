@@ -13,7 +13,9 @@ class CreatePlayerUseCase {
             if(playerExist){
                 throw new Error("O Id já existe no sistema");
             }
-            
+
+            position  = position[0].toUpperCase() + position.substring(1) as any;
+
            await this.playersRepository.addPlayer({id,team_id,name,age,position,goals});
         
     }
