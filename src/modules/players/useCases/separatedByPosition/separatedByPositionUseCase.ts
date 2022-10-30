@@ -8,6 +8,11 @@ class SeparatedByPositionUseCase {
 
     async execute(): Promise<Positions> {
        const separatedByPosition = await this.playersRepository.separatedByPosition();
+
+        if(!separatedByPosition) {
+            throw new Error("Não foi possível listar os usuários com base em suas posições");
+        }
+
        return separatedByPosition;
     }
 
