@@ -1,16 +1,18 @@
-# 🚀 Desafio Acelera Jovem Segundo Trimestre 🚀
+# ⚽ Desafio Acelera Jovem Segundo Trimestre 👩‍💻
 
 Desafio proposto pelo time de People e desenvolvedores da Sidelab com o \
-intuito de certificar meus conhecimentos adquiridos no capitulo 2
+intuito de certificar meus conhecimentos adquiridos no capitulo 2 da trilha \
+de estudos
 
-O projeto se trata de uma API que faz o gerenciamento de times de futebol e seus jogadores.⚽
+O projeto se trata de uma API que faz o gerenciamento de times de futebol \
+e seus jogadores. ⚽
 
 
 ## 🚀 Começando
 Para obter uma cópia do projeto,basta clonar o repositório ou baixar o arquivo zip. 
 
 ### 📋 Pré-requisitos
-
+#### Tutorial em vídeo: https://www.loom.com/share/911b7e4c3f7e4eda8908ae57691936d3
 De que coisas você precisa para instalar o software e como instalá-lo?
 
 ```
