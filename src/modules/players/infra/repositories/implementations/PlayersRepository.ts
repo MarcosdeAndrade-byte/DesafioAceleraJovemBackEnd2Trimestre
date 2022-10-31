@@ -45,7 +45,6 @@ class PlayersRepository implements IPlayersRepository {
             "Midfielder": [],
             "Forward": []
         };
-
         separatedByPosition.forEach(user => { if(positions[user.position]){ 
             positions[user.position].push(user) 
         }});
