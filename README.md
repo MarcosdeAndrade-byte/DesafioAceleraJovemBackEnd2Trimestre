@@ -5,7 +5,7 @@ intuito de certificar meus conhecimentos adquiridos no capitulo 2 da trilha \
 de estudos
 
 O projeto se trata de uma API que faz o gerenciamento de times de futebol \
-e seus jogadores. ⚽
+e seus jogadores. ⚽ [documentação](https://cedar-bug-a05.notion.site/Desafio-Acelera-Jovem-Back-End-2-Trimestre-52d24e0b555a47c5aa983a6b3c1d16cd)
 
 
 ## 🚀 Começando
