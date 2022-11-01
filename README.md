@@ -30,7 +30,7 @@ git clone -> npm install  -> yarn dev -> [instalar extensão para visualização
 * [VsCode](https://code.visualstudio.com/download) - IDE usada.
 * [Git](https://github.com/) - Controle de versão.
 * [Typescript](https://www.typescriptlang.org/) - Liguagem de desenvolvimento
-* [insomnia](https://insomnia.rest/download) - Ferramenta de teste e documentação dos endpoisnts
+* [insomnia](https://insomnia.rest/download) - Ferramenta de teste e documentação dos endpoints
 * [sqlite](https://www.sqlite.org/index.html) - Banco de dados utilizado
 
 ## 📌 Versão
@@ -54,7 +54,7 @@ Nós usamos o Git para controle de versão. Para as versões disponíveis, obser
 
 ## 📄 Licença
 
-Este projeto não está sob nehuma liceça.
+Este projeto não está sob nehuma licença.
 
 ## 🎁 Expressões de gratidão
 
